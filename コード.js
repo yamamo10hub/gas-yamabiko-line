@@ -138,6 +138,9 @@ function doPost(e) {
 function put_weekday (gap) {
   var ary = ['日','月','火','水','木','金','土'];
   var week_no = new Date().getDay() + gap;
+  if (week_no == 7){
+    return ary[1];
+  }
   return ary[week_no];
 }
 function wday_talk () {
@@ -197,11 +200,12 @@ function searchRow(sheet,val){
     return hitflag;
   }
 }
-//検証用に関数だけ実行させるためデバッグ用関数
+// webconsoleで処理を実行させるための検証用関数
 function devexec(){
-  searchTodo('検索？生きる');
+  searchTodo('検索？ほげ');
+  put_weekday(2);
 }
-//Post,Push双方で使える機能　End
+// Post,Push双方で使える機能　End
 
 // pushメッセージ関数
 // 曜日を知らせる
